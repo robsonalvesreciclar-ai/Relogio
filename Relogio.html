@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Relógio</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-primary">
+
+    <div class="container vh-100 d-flex justify-content-center align-items-center">
+
+        <div class="card border-0 shadow-lg rounded-5 bg-white"
+             style="width: 450px;">
+
+            <div class="card-body text-center p-5">
+
+                <h2 class="fw-bold text-primary mb-4">
+                    Relógio
+                </h2>
+
+                <div class="bg-dark text-white rounded-4 p-4 shadow">
+
+                    <div id="display"
+                         class="display-4 fw-bold">
+                    </div>
+
+                </div>
+
+                <div class="mt-4">
+                    <span class="badge text-bg-primary px-3 py-2">
+                        Hora atual
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function relogio() {
+
+            let agora = new Date();
+
+            let hora = String(agora.getHours()).padStart(2, '0');
+            let minuto = String(agora.getMinutes()).padStart(2, '0');
+            let segundo = String(agora.getSeconds()).padStart(2, '0');
+
+            let relogioCompleto = `${hora} : ${minuto} : ${segundo}`;
+
+            document.getElementById("display").textContent = relogioCompleto;
+        }
+
+        relogio();
+
+        setInterval(relogio, 1000);
+
+    </script>
+
+</body>
+</html>
